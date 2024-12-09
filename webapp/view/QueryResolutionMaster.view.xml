@@ -1,0 +1,52 @@
+<mvc:View
+    controllerName="zqueryres.controller.QueryResolutionMaster"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:ui="sap.suite.ui.commons"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <App>
+        <pages>
+            <Page title="My Queries">
+                <subHeader>
+                    <Toolbar id="toolbar1">
+                        <SearchField
+                            id="idSearchSo"
+                            search="onSearch"
+                        />
+                        <Button
+                            icon="sap-icon://filter"
+                            tooltip="{i18n>refreshButtonTooltip}"
+                            press="handleOpenDialog"
+                            type="Emphasized"
+                        />
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </subHeader>
+                <content>
+                    <Text
+                        id="idtextPocount"
+                        visible="false"
+                    />
+                    <Text
+                        id="idtextPocountAlredyR"
+                        visible="false"
+                    />
+                    <IconTabBar  id="idIconTabBarNoIcons" applyContentPadding="false" expanded="{device>/isNoPhone}" expandable="false"
+						class="sapUiResponsiveContentPadding" select="OnSelectTab">
+                   <items>
+                   <IconTabFilter text="To Be Answered" key="ToBeAns" class="clsTobeAsnTab">
+                   <List items="{/results}"  id="listToBeAns" noDataText="No Query To Respond" mode="SingleSelectMaster" selectionChange="onSelectionChange" 	growing="true" growingScrollToLoad="true" growingThreshold="100" >
+                   
+                   </List>
+                   </IconTabFilter>
+                   </items>
+                        </IconTabBar>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
