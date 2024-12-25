@@ -342,7 +342,7 @@ sap.ui.define(
           DocumentID: sItemToDeleteId,
         });
         oModel.remove("/POAttachmentsSet('" + oPONo + "')", {
-          method: "Delete",
+          method: "DELETE",
           success: function (odata, oResponse) {
             MessageBox.success("Attachment Deleted Successfull", {
               icon: sap.m.MessageBox.Icon.SUCCESS,
