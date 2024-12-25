@@ -1,3 +1,4 @@
+
 {
   "_version": "1.37.0",
   "sap.app": {
@@ -63,6 +64,7 @@
           "bundleName": "zqueryres.i18n.i18n"
         }
       },
+     
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -86,24 +88,58 @@
         "controlId": "app",
         "clearControlAggregation": false
       },
-      "routes": [
+      "routes":[
         {
-          "name": "RouteView1",
-          "pattern": ":?query:",
+          "pattern": "",
+          "name": "FirstPage",
+          "target":[
+             "QueryResolutionDetail",
+              "QueryResolutionMaster"
+          ]
+        },
+        {
+          "pattern": "FirstPage1",
+          "name": "FirstPage1",
+          "target":[
+             "QueryResolutionMaster"
+          ]
+        },{
+          "name": "QueryResolutionDetail",
+          "pattern": "QueryResolutionDetail/{PurchaseOrderNo}/QueryResolutionDetail1/{reviewData}",
           "target": [
-            "TargetView1"
+              "QueryResolutionMaster",
+              "QueryResolutionDetail"
+          ]
+        },
+        {
+          "name": "queryresolutiondetail",
+          "pattern": "queryresolutiondetail/{status}",
+          "target": [
+              "QueryResolutionMaster",
+              "QueryResolutionDetail"
           ]
         }
       ],
       "targets": {
-        "TargetView1": {
+        "TargetSApp": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "aap",
+          "viewId": "app",
           "viewName": "SApp"
-        }
+      },
+      "QueryResolutionMaster": {
+        "viewType": "XML",
+        "viewName": "QueryResolutionMaster",
+        "controlAggregation": "masterPages"
+    },
+    "QueryResolutionDetail": {
+      "viewType": "XML",
+      "viewName": "QueryResolutionDetail",
+      "controlAggregation": "detailPages"
+  }
       }
+     
     },
     "rootView": {
       "viewName": "zqueryres.view.SApp",

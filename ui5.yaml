@@ -18,7 +18,7 @@ server:
         backend:
           - path: /sap
             url: http://vedevs4pas.vecvnet.com:8000
-            client: '120'
+            client: "120"
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

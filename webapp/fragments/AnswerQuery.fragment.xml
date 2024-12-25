@@ -1,0 +1,107 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        contentWidth="700px"
+        title="Answer Query"
+        horizontalScrolling="false"
+    >
+        <VBox class="sapUiSmallMargin">
+            <Text
+                id="lblDate"
+                visible="false"
+            />
+            <Text
+                id="lblTime"
+                visible="false"
+            />
+            <Text
+                id="IdQueryTo"
+                visible="false"
+            />
+            <Text
+                id="txtgenericuser"
+                visible="false"
+            />
+            <f:Form
+                id="FormToolbarRejectionHistory"
+                editable="true"
+                ariaLabelledBy="Title1"
+            >
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="Query Answer">
+                                <f:fields>
+                                    <TextArea
+                                        id="iQueryAns"
+                                        width="100%"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                label="OTP"
+                                id="lblotp"
+                                visible="false"
+                            >
+                                <f:fields>
+                                    <TextArea
+                                        id="idOTP"
+                                        width="100%"
+                                        visible="false"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Query Asked">
+                                <f:fields>
+                                    <TextArea
+                                        id="iQuery"
+                                        width="100%"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="To User">
+                                <f:fields>
+                                    <Input
+                                        id="iUser"
+                                        width="100%"
+                                    />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Query Date Time ">
+                            <f:fields>
+                            	<Input id="idDateTime" width="100%"/>
+                            </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </VBox>
+        <buttons>
+        <Button text="Submit Query Answer" icon="sap-icon://accept" type="Emphasized" press="onSumbitAnswer"></Button>
+        <Button text="Cancel"  type="Reject" icon="sap-icon://decline" press="onCancleAnswer"></Button>
+
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

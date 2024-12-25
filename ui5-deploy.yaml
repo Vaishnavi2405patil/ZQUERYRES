@@ -13,6 +13,9 @@ builder:
     - name: deploy-to-abap
       afterTask: generateCachebusterInfo
       configuration:
+        credentials:
+          username: env:FIORI_TOOLS_USER
+          password: env:FIORI_TOOLS_PASSWORD
         target:
           url: http://vedevs4pas.vecvnet.com:8000
           client: '120'
