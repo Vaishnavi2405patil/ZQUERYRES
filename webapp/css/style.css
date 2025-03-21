@@ -4,3 +4,18 @@
   .answerQueryDialog{
     width:40% !important;  
   }
+  .sapMTitle.sapMTitleStyleAuto.sapMTitleNoWrap.sapUiSelectable.sapMTitleMaxWidth.sapMTitleTB.myCustom.sapMBarChild.sapMTBShrinkItem{
+    color:black !important;
+    font-size:20px !important;
+     text-align: center !important;
+      margin-left: 250px !important;
+   }
+   .sapMTitle.sapMTitleStyleAuto.sapMTitleNoWrap.sapUiSelectable.sapMTitleMaxWidth.sapMTitleTB.myMaster.sapMBarChild.sapMTBShrinkItem{
+    color: black !important;
+    margin-left:100px !important;
+    font-size:19px !important;
+  }
+  .sapMLabelColonAndRequired::before {
+    content: "" !important;
+    display: none !important;
+}

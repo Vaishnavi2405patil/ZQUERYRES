@@ -158,7 +158,19 @@
 
     	<App>
 		<pages>
-			<Page title="My Queries">
+			<Page>
+
+             <customHeader>
+                    <Toolbar>
+                        <content>
+                            <Title
+                                class="myMaster"
+                                text="My Queries"
+                            />
+                            <ToolbarSpacer />
+                        </content>
+                    </Toolbar>
+                </customHeader>
 				<subHeader>
 					<Toolbar id="toolbar1">
 						<SearchField id="idSearchSo" search="onSearch"></SearchField>

@@ -23,6 +23,6 @@ builder:
           name: ZQUERYRES
           description: Query Resolution S4 App
           package: zpoapproval
-          transport: ECDK9A0A9K
+          transport: ECDK9A0DGH  
         exclude:
           - /test/
