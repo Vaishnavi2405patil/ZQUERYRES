@@ -5,11 +5,21 @@
     xmlns:ui="sap.suite.ui.commons"
     xmlns:c="sap.ui.core"
     displayBlock="true"
-   
 >
-    <!-- <App>
+    <App>
         <pages>
-            <Page title="My Queries">
+            <Page>
+                <customHeader>
+                    <Toolbar>
+                        <content>
+                            <Title
+                                class="myMaster"
+                                text="My Queries"
+                            />
+                            <ToolbarSpacer />
+                        </content>
+                    </Toolbar>
+                </customHeader>
                 <subHeader>
                     <Toolbar id="toolbar1">
                         <SearchField
@@ -39,7 +49,7 @@
                         applyContentPadding="false"
                         expanded="{device>/isNoPhone}"
                         expandable="false"
-                        class="sapUiResponsiveContentPadding myCustomClass"
+                        class="sapUiResponsiveContentPadding"
                         select="OnSelectTab"
                     >
                         <items>
@@ -92,6 +102,7 @@
                                                     text="{PoType}"
                                                     visible="false"
                                                 />
+                                                <!--<ObjectAttribute text="{QueryTime} "/>-->
                                             </attributes>
                                         </ObjectListItem>
                                     </items>
@@ -102,7 +113,7 @@
                                 key="AlrdRaised"
                             >
                                 <List
-                                     items="{/results}"
+                                    items="{/results}"
                                     id="listAlrdRaised"
                                     noDataText="No Query Raised"
                                     mode="SingleSelectMaster"
@@ -141,11 +152,17 @@
                                                     text="{QueryToID} "
                                                 />
                                                 <ObjectAttribute
+                                                    text="{QueryDate} {QueryTime} "
+                                                />
+                                                <ObjectAttribute
                                                     text="{PoType}"
                                                     visible="false"
                                                 />
+                                                <!--<ObjectAttribute text="{QueryTime} "/>-->
                                             </attributes>
                                         </ObjectListItem>
+                                        <!--	<StandardListItem title="{PurchaseOrderNo}" description="{PODate}"  iconDensityAware="true" iconInset="true"
+							info="{POInitiator}" icon="{src}" infoState="Success"	type="Active" press="onListItemPress"/>-->
                                     </items>
                                 </List>
                             </IconTabFilter>
@@ -154,88 +171,5 @@
                 </content>
             </Page>
         </pages>
-    </App> -->
-
-    	<App>
-		<pages>
-			<Page>
-
-             <customHeader>
-                    <Toolbar>
-                        <content>
-                            <Title
-                                class="myMaster"
-                                text="My Queries"
-                            />
-                            <ToolbarSpacer />
-                        </content>
-                    </Toolbar>
-                </customHeader>
-				<subHeader>
-					<Toolbar id="toolbar1">
-						<SearchField id="idSearchSo" search="onSearch"></SearchField>
-						<Button icon="sap-icon://filter" tooltip="{i18n>refreshButtonTooltip}" press="handleOpenDialog" type="Emphasized"/>
-						<ToolbarSpacer/>
-					</Toolbar>
-				</subHeader>
-				<content>
-					<Text id="idtextPocount" visible="false"/>
-					<Text id="idtextPocountAlredyR" visible="false"/>
-					<IconTabBar id="idIconTabBarNoIcons" applyContentPadding="false" expanded="{device>/isNoPhone}" expandable="false"
-						class="sapUiResponsiveContentPadding" select="OnSelectTab">
-						<items>
-							<IconTabFilter text="To Be Answered" key="ToBeAns" class="clsTobeAsnTab">
-								<List items="{/results}" id="listToBeAns" noDataText="No Query To Respond" mode="SingleSelectMaster" selectionChange="onSelectionChange"
-								growing="true" growingScrollToLoad="true" growingThreshold="100">
-									<items>
-										<ObjectListItem title="{QueryID}" type="Active" press="onListItemPress">
-												<firstStatus>
-												<ObjectStatus text="{QueryFromID}" visible="false" class="clsQueryFrom"/>
-											</firstStatus>
-											<secondStatus>
-												<ObjectStatus text="{QueryStatusText}" state="{ path: 'QueryStatusText', formatter: '.formatter.status' }"/>
-											</secondStatus>
-											<attributes>
-												<ObjectAttribute text="{PO_NO}" visible="false"/>
-												<ObjectAttribute text="From :{QueryFrom} "/>
-												<ObjectAttribute text="{QueryDate} {QueryTime}"/>
-													<ObjectAttribute  text="{PoType}" visible="false"/>
-												<!--<ObjectAttribute text="{QueryTime} "/>-->
-											</attributes>
-										</ObjectListItem>
-									</items>
-								</List>
-							</IconTabFilter>
-							<IconTabFilter text="Raised By Me" key="AlrdRaised">
-								<List items="{/results}" id="listAlrdRaised" noDataText="No Query Raised" mode="SingleSelectMaster" selectionChange="onSelectionChange"
-								growing="true" growingScrollToLoad="true" growingThreshold="100">
-									<items>
-										<ObjectListItem title="{QueryID}" type="Active" press="onListItemPress">
-												<firstStatus>
-												<ObjectStatus text="{UserID}" visible="false"/>
-												
-											</firstStatus>
-											<secondStatus>
-												<ObjectStatus text="{QueryStatusText}" state="{ path: 'QueryStatusText', formatter: '.formatter.status' }"/>
-											</secondStatus>
-											<attributes>
-												<ObjectAttribute text="{PO_NO}" visible="false"/>
-												<ObjectAttribute text="To:{QueryTo} "/>
-												<ObjectAttribute text="{QueryToID} "/>
-												<ObjectAttribute text="{QueryDate} {QueryTime} "/>
-													<ObjectAttribute  text="{PoType}" visible="false"/>
-												<!--<ObjectAttribute text="{QueryTime} "/>-->
-											</attributes>
-										</ObjectListItem>
-										<!--	<StandardListItem title="{PurchaseOrderNo}" description="{PODate}"  iconDensityAware="true" iconInset="true"
-							info="{POInitiator}" icon="{src}" infoState="Success"	type="Active" press="onListItemPress"/>-->
-									</items>
-								</List>
-							</IconTabFilter>
-						</items>
-					</IconTabBar>
-				</content>
-			</Page>
-		</pages>
-	</App>
+    </App>
 </mvc:View>
